@@ -514,17 +514,19 @@
 
         /* ── MEMBER MONTAGE ── */
         .member-montage {
-            padding: 5rem 2rem;
+            padding: 5rem 0;
             background: var(--dark);
+            overflow: hidden;
         }
 
-        .member-montage-inner {
+        .member-montage-header {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 3rem;
             text-align: center;
+            padding: 0 2rem;
         }
 
-        .member-montage-inner h2 {
+        .member-montage-header h2 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             font-weight: 800;
@@ -532,23 +534,39 @@
             letter-spacing: -0.02em;
         }
 
-        .member-montage-inner > p {
+        .member-montage-header > p {
             color: var(--text-light);
             font-size: 1.05rem;
-            margin-bottom: 3rem;
         }
 
-        .montage-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 0.75rem;
+        .montage-slider {
+            display: flex;
+            width: max-content;
+            animation: slideLeft 30s linear infinite;
+        }
+
+        .montage-slider:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes slideLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .montage-track {
+            display: flex;
+            gap: 1rem;
+            padding: 0 0.5rem;
         }
 
         .montage-item {
             position: relative;
-            aspect-ratio: 3/4;
+            width: 220px;
+            height: 300px;
             border-radius: 12px;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
         .montage-item img {
@@ -579,15 +597,10 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 900px) {
-            .montage-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .montage-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 600px) {
+            .montage-item {
+                width: 160px;
+                height: 220px;
             }
         }
 
@@ -2822,11 +2835,40 @@
 
     <!-- MEMBER MONTAGE -->
     <section class="member-montage">
-        <div class="member-montage-inner reveal">
+        <div class="member-montage-header reveal">
             <span class="section-label">The Collective</span>
             <h2>Every morning, they choose themselves first</h2>
             <p>Real members. Real mornings. Building their futures before the world wakes up.</p>
-            <div class="montage-grid">
+        </div>
+        <div class="montage-slider">
+            <div class="montage-track">
+                <div class="montage-item">
+                    <img src="images/member1.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:00 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member2.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:12 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member3.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:04 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member4.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:31 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member5.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:22 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member6.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:45 AM</span>
+                </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="montage-track">
                 <div class="montage-item">
                     <img src="images/member1.jpg" alt="Member working at 6 AM">
                     <span class="montage-time">6:00 AM</span>
