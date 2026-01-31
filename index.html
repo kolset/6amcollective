@@ -145,7 +145,8 @@
             overflow: hidden;
         }
 
-        .hero-video-container {
+        /* Hero Gallery - Stacked sliding rows */
+        .hero-gallery {
             position: absolute;
             top: 0;
             left: 0;
@@ -153,18 +154,57 @@
             height: 100%;
             z-index: 1;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 2rem 0;
         }
 
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
+        .hero-gallery-row {
+            display: flex;
+            width: max-content;
+            gap: 0.75rem;
+        }
+
+        .hero-gallery-row.slide-left {
+            animation: heroSlideLeft 40s linear infinite;
+        }
+
+        .hero-gallery-row.slide-right {
+            animation: heroSlideRight 40s linear infinite;
+        }
+
+        @keyframes heroSlideLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes heroSlideRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .hero-gallery-item {
+            width: 280px;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .hero-gallery-item img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-gallery-item {
+                width: 200px;
+                height: 130px;
+            }
         }
 
         /* Animated sunrise gradient fallback */
@@ -2432,13 +2472,55 @@
 
     <!-- HERO -->
     <section class="hero">
-        <!-- Background Video -->
-        <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="hero-video.mp4" type="video/mp4">
-            </video>
+        <!-- Background Image Gallery -->
+        <div class="hero-gallery">
+            <!-- Row 1 - Slides Left -->
+            <div class="hero-gallery-row slide-left">
+                <div class="hero-gallery-item"><img src="images/member1.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member2.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member3.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member4.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member5.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member6.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member1.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member2.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member3.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member4.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member5.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member6.jpg" alt=""></div>
+            </div>
+            <!-- Row 2 - Slides Right -->
+            <div class="hero-gallery-row slide-right">
+                <div class="hero-gallery-item"><img src="images/member3.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member5.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member1.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member6.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member2.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member4.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member3.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member5.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member1.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member6.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member2.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member4.jpg" alt=""></div>
+            </div>
+            <!-- Row 3 - Slides Left -->
+            <div class="hero-gallery-row slide-left">
+                <div class="hero-gallery-item"><img src="images/member4.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member1.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member6.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member2.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member5.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member3.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member4.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member1.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member6.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member2.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member5.jpg" alt=""></div>
+                <div class="hero-gallery-item"><img src="images/member3.jpg" alt=""></div>
+            </div>
         </div>
-        <!-- Fallback gradient if video doesn't load -->
+        <!-- Fallback gradient if images don't load -->
         <div class="hero-gradient-bg"></div>
         <div class="hero-overlay"></div>
 
@@ -2594,63 +2676,6 @@
         </div>
     </section>
 
-    <!-- MEMBER MONTAGE -->
-    <section class="member-montage">
-        <div class="montage-slider">
-            <div class="montage-track">
-                <div class="montage-item">
-                    <img src="images/member1.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:00 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member2.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:12 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member3.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:04 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member4.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:31 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member5.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:22 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member6.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:45 AM</span>
-                </div>
-            </div>
-            <div class="montage-track">
-                <div class="montage-item">
-                    <img src="images/member1.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:00 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member2.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:12 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member3.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:04 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member4.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:31 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member5.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:22 AM</span>
-                </div>
-                <div class="montage-item">
-                    <img src="images/member6.jpg" alt="Member working at 6 AM">
-                    <span class="montage-time">6:45 AM</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
             <!-- The Shift Section -->
             <div class="best-hours-header" style="margin-top: 6rem;">
