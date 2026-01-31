@@ -143,24 +143,23 @@
             text-align: center;
             padding: 0 2rem 4rem;
             position: relative;
-            overflow: visible;
-            z-index: 1;
+            overflow: hidden;
         }
 
         /* Hero Gallery - Stacked sliding rows */
         .hero-gallery {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            z-index: 0;
+            height: 100%;
+            z-index: 1;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             gap: 0.75rem;
-            padding-top: 0;
+            padding-top: 1rem;
         }
 
         .hero-gallery-row {
@@ -337,18 +336,18 @@
         }
 
         .hero-overlay {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             background: linear-gradient(
                 180deg,
                 rgba(10, 10, 18, 0.4) 0%,
                 rgba(10, 10, 18, 0.5) 50%,
                 rgba(10, 10, 18, 0.95) 100%
             );
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
         }
 
@@ -381,7 +380,7 @@
         .hero-content {
             max-width: 820px;
             position: relative;
-            z-index: 10;
+            z-index: 3;
             color: #fff;
             padding-top: 5rem;
         }
