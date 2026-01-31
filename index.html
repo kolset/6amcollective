@@ -229,35 +229,45 @@
             background: linear-gradient(to left, #0a0a12 0%, transparent 100%);
         }
 
-        /* Hero Collage - tilted on the side */
-        .hero-collage {
-            position: absolute;
-            right: -50px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-45deg);
-            z-index: 4;
+        /* Tilted Collage Section */
+        .collage-section {
+            padding: 4rem 2rem;
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            opacity: 0.9;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .collage-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            transform: rotate(-8deg);
         }
 
         .collage-item {
             position: relative;
-            width: 180px;
-            height: 240px;
-            border-radius: 12px;
+            width: 200px;
+            height: 280px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             border: 2px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .collage-item:nth-child(2) {
-            margin-left: 60px;
+        .collage-item:nth-child(odd) {
+            transform: translateY(-20px);
         }
 
-        .collage-item:nth-child(3) {
-            margin-left: 120px;
+        .collage-item:nth-child(even) {
+            transform: translateY(20px);
+        }
+
+        .collage-item:hover {
+            transform: translateY(-30px) scale(1.05);
+        }
+
+        .collage-item:nth-child(even):hover {
+            transform: translateY(10px) scale(1.05);
         }
 
         .collage-item img {
@@ -276,14 +286,19 @@
             color: var(--accent);
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
             letter-spacing: 0.05em;
-            background: rgba(0,0,0,0.5);
-            padding: 4px 8px;
-            border-radius: 4px;
+            background: rgba(0,0,0,0.6);
+            padding: 6px 10px;
+            border-radius: 6px;
         }
 
-        @media (max-width: 1200px) {
-            .hero-collage {
-                display: none;
+        @media (max-width: 768px) {
+            .collage-wrapper {
+                transform: rotate(-5deg);
+                gap: 1rem;
+            }
+            .collage-item {
+                width: 140px;
+                height: 200px;
             }
         }
 
@@ -2619,22 +2634,6 @@
         <div class="hero-gradient-bg"></div>
         <div class="hero-overlay"></div>
 
-        <!-- Tilted Collage -->
-        <div class="hero-collage">
-            <div class="collage-item">
-                <img src="images/member1.jpg" alt="Member at 6 AM">
-                <span class="collage-time">6:00 AM</span>
-            </div>
-            <div class="collage-item">
-                <img src="images/member3.jpg" alt="Member at 6 AM">
-                <span class="collage-time">6:14 AM</span>
-            </div>
-            <div class="collage-item">
-                <img src="images/member5.jpg" alt="Member at 6 AM">
-                <span class="collage-time">6:27 AM</span>
-            </div>
-        </div>
-
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="pulse"></span>
@@ -2964,6 +2963,36 @@
                         <p>Monthly challenges push you further. Members who complete challenges report 2x faster progress toward FI.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TILTED COLLAGE -->
+    <section class="collage-section">
+        <div class="collage-wrapper">
+            <div class="collage-item">
+                <img src="images/member1.jpg" alt="Member at 6 AM">
+                <span class="collage-time">6:00 AM</span>
+            </div>
+            <div class="collage-item">
+                <img src="images/member2.jpg" alt="Member at 6 AM">
+                <span class="collage-time">6:08 AM</span>
+            </div>
+            <div class="collage-item">
+                <img src="images/member3.jpg" alt="Member at 6 AM">
+                <span class="collage-time">6:14 AM</span>
+            </div>
+            <div class="collage-item">
+                <img src="images/member4.jpg" alt="Member at 6 AM">
+                <span class="collage-time">6:22 AM</span>
+            </div>
+            <div class="collage-item">
+                <img src="images/member5.jpg" alt="Member at 6 AM">
+                <span class="collage-time">6:31 AM</span>
+            </div>
+            <div class="collage-item">
+                <img src="images/member6.jpg" alt="Member at 6 AM">
+                <span class="collage-time">6:45 AM</span>
             </div>
         </div>
     </section>
