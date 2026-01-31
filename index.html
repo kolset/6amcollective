@@ -512,6 +512,85 @@
             font-weight: 600;
         }
 
+        /* ── MEMBER MONTAGE ── */
+        .member-montage {
+            padding: 5rem 2rem;
+            background: var(--dark);
+        }
+
+        .member-montage-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .member-montage-inner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .member-montage-inner > p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 3rem;
+        }
+
+        .montage-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.75rem;
+        }
+
+        .montage-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .montage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .montage-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .montage-time {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 0.05em;
+        }
+
+        .montage-time::before {
+            content: "'";
+            opacity: 0.7;
+        }
+
+        @media (max-width: 900px) {
+            .montage-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .montage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         /* ── TESTIMONIALS ── */
         .testimonials {
             padding: 7rem 2rem;
@@ -2736,6 +2815,41 @@
                         <h4>Build Unstoppable Momentum</h4>
                         <p>Monthly challenges push you further. Members who complete challenges report 2x faster progress toward FI.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBER MONTAGE -->
+    <section class="member-montage">
+        <div class="member-montage-inner reveal">
+            <span class="section-label">The Collective</span>
+            <h2>Every morning, they choose themselves first</h2>
+            <p>Real members. Real mornings. Building their futures before the world wakes up.</p>
+            <div class="montage-grid">
+                <div class="montage-item">
+                    <img src="images/member1.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:00 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member2.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:12 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member3.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:04 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member4.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:31 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member5.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:22 AM</span>
+                </div>
+                <div class="montage-item">
+                    <img src="images/member6.jpg" alt="Member working at 6 AM">
+                    <span class="montage-time">6:45 AM</span>
                 </div>
             </div>
         </div>
