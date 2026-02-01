@@ -1521,6 +1521,108 @@
             }
         }
 
+        /* ── QUIT SECTION ── */
+        .quit-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, rgba(13, 19, 33, 0.8) 0%, var(--bg) 100%);
+        }
+
+        .quit-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quit-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .quit-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .quit-header p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .quit-pillars {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .quit-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .quit-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245, 166, 35, 0.4);
+        }
+
+        .quit-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quit-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .quit-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .quit-pillars {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quit-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .quit-pillars {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .quit-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quit-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .quit-card {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
         .focus-source-social svg {
             width: 16px;
             height: 16px;
@@ -3097,6 +3199,43 @@
         </div>
     </section>
 
+    <!-- LEARN HOW TO QUIT -->
+    <section class="quit-section" id="quit">
+        <div class="quit-inner reveal">
+            <div class="quit-header">
+                <span class="section-label">The Exit Plan</span>
+                <h2>Learn how to quit the 9-5</h2>
+                <p>Freedom isn't luck. It's a system. Master these five pillars and build your path out.</p>
+            </div>
+            <div class="quit-pillars">
+                <div class="quit-card">
+                    <div class="quit-card-icon">🧠</div>
+                    <div class="quit-card-title">Mindset</div>
+                    <p class="quit-card-desc">Break free from scarcity thinking. Adopt the mental models of people who've already escaped.</p>
+                </div>
+                <div class="quit-card">
+                    <div class="quit-card-icon">🪞</div>
+                    <div class="quit-card-title">Identity</div>
+                    <p class="quit-card-desc">Become the person who quits. Rewrite the story you tell yourself about what's possible.</p>
+                </div>
+                <div class="quit-card">
+                    <div class="quit-card-icon">📊</div>
+                    <div class="quit-card-title">Budget</div>
+                    <p class="quit-card-desc">Know exactly where your money goes. Cut the waste and redirect every dollar toward freedom.</p>
+                </div>
+                <div class="quit-card">
+                    <div class="quit-card-icon">💰</div>
+                    <div class="quit-card-title">Saving</div>
+                    <p class="quit-card-desc">Build your runway. The bigger your cushion, the bolder your moves can be.</p>
+                </div>
+                <div class="quit-card">
+                    <div class="quit-card-icon">📈</div>
+                    <div class="quit-card-title">Increase Income</div>
+                    <p class="quit-card-desc">Earn more to save more. Negotiate raises, build side income, stack skills that pay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- BEST HOURS -->
     <section class="best-hours" id="best-hours">
