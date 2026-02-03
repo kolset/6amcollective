@@ -1167,6 +1167,204 @@
                 z-index: 1001;
             }
         }
+
+        /* ── SOCIAL SECTION ── */
+        .social-section {
+            padding: 7rem 2rem;
+            background: var(--dark);
+        }
+
+        .social-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .social-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .social-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .social-header p {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .reel-card {
+            position: relative;
+            aspect-ratio: 9/16;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-decoration: none;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .reel-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 166, 35, 0.4);
+        }
+
+        .reel-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .reel-text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 1rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+            z-index: 2;
+        }
+
+        .reel-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .reel-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            padding-left: 3px;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 3;
+            opacity: 0;
+        }
+
+        .reel-card:hover .reel-play {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(245, 166, 35, 0.6);
+        }
+
+        .reel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            z-index: 2;
+        }
+
+        .reel-views {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .social-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+        }
+
+        .social-btn.instagram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+        }
+
+        .social-btn.tiktok {
+            background: #000;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-btn.tiktok:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--gray);
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1862,6 +2060,73 @@
         <a href="index.html#pricing" class="btn-primary">Start the Protocol &rarr;</a>
     </section>
 
+    <!-- SOCIAL MEDIA -->
+    <section class="social-section">
+        <div class="social-inner reveal">
+            <div class="social-header">
+                <span class="section-label">Follow the Journey</span>
+                <h2>Daily inspiration on social</h2>
+                <p>Morning rituals, mindfulness tips, and behind-the-scenes of the 6 AM lifestyle.</p>
+            </div>
+            <div class="social-grid">
+                <a href="#" class="reel-card" target="_blank" rel="noopener">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=700&fit=crop" alt="Morning meditation reel" class="reel-img">
+                    <div class="reel-text-overlay">
+                        <span class="reel-title">5-minute morning meditation</span>
+                    </div>
+                    <div class="reel-play">&#9658;</div>
+                    <div class="reel-overlay">
+                        <span class="reel-views">&#9658; 32.1K</span>
+                    </div>
+                </a>
+                <a href="#" class="reel-card" target="_blank" rel="noopener">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=700&fit=crop" alt="Breathwork reel" class="reel-img">
+                    <div class="reel-text-overlay">
+                        <span class="reel-title">Box breathing for focus</span>
+                    </div>
+                    <div class="reel-play">&#9658;</div>
+                    <div class="reel-overlay">
+                        <span class="reel-views">&#9658; 18.7K</span>
+                    </div>
+                </a>
+                <a href="#" class="reel-card" target="_blank" rel="noopener">
+                    <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=700&fit=crop" alt="Journaling reel" class="reel-img">
+                    <div class="reel-text-overlay">
+                        <span class="reel-title">My morning journal routine</span>
+                    </div>
+                    <div class="reel-play">&#9658;</div>
+                    <div class="reel-overlay">
+                        <span class="reel-views">&#9658; 24.3K</span>
+                    </div>
+                </a>
+                <a href="#" class="reel-card" target="_blank" rel="noopener">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=700&fit=crop" alt="Morning routine reel" class="reel-img">
+                    <div class="reel-text-overlay">
+                        <span class="reel-title">Why I wake up at 6 AM</span>
+                    </div>
+                    <div class="reel-play">&#9658;</div>
+                    <div class="reel-overlay">
+                        <span class="reel-views">&#9658; 41.2K</span>
+                    </div>
+                </a>
+            </div>
+            <div class="social-buttons">
+                <a href="#" class="social-btn instagram" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Follow on Instagram
+                </a>
+                <a href="#" class="social-btn tiktok" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    Follow on TikTok
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
@@ -1872,6 +2137,14 @@
                 <li><a href="#flow">Daily Flow</a></li>
                 <li><a href="community.html">Community</a></li>
             </ul>
+            <div class="footer-social">
+                <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                </a>
+            </div>
             <div class="footer-copy">&copy; 2026 6am Collective. Master your morning.</div>
         </div>
     </footer>
